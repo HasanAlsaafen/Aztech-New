@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const ServicesCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -10,7 +11,12 @@ const ServicesCarousel = () => {
 
   const showSlide = useCallback((index) => {
     const carousel = carouselRef.current;
-    if (!carousel || !window.bootstrap?.Carousel) return;
+    if (!carousel || !(carousel instanceof HTMLElement)) return;
+
+    if (!window.bootstrap?.Carousel) {
+      console.error("Bootstrap لم يتم تحميله!");
+      return;
+    }
 
     let bsCarousel = window.bootstrap.Carousel.getInstance(carousel);
     if (!bsCarousel) {
@@ -23,7 +29,7 @@ const ServicesCarousel = () => {
 
   const startProgressAnimation = useCallback(() => {
     const progressBar = progressBarRef.current;
-    if (!progressBar) return;
+    if (!progressBar || !progressBar.animate) return;
 
     if (progressAnimation.current) {
       progressAnimation.current.cancel();
@@ -40,7 +46,6 @@ const ServicesCarousel = () => {
     }
 
     progressBar.style.width = `${startWidth}%`;
-
     progressAnimation.current = progressBar.animate(
       { width: [`${startWidth}%`, `${endWidth}%`] },
       { duration: 10000, easing: "linear", fill: "forwards" }
@@ -74,13 +79,16 @@ const ServicesCarousel = () => {
   }, []);
 
   useEffect(() => {
+    if (!window.bootstrap) {
+      console.error("Bootstrap لم يتم تحميله!");
+      return;
+    }
+
     const carousel = carouselRef.current;
-    if (!carousel || !window.bootstrap) return;
+    if (!carousel) return;
 
     carousel.addEventListener("slid.bs.carousel", handleSlide);
-    return () => {
-      carousel.removeEventListener("slid.bs.carousel", handleSlide);
-    };
+    return () => carousel.removeEventListener("slid.bs.carousel", handleSlide);
   }, [handleSlide]);
 
   useEffect(() => {
@@ -97,7 +105,10 @@ const ServicesCarousel = () => {
 
   useEffect(() => {
     const section = document.querySelector(".gradient-section");
-    if (!section) return;
+    if (!section) {
+      console.warn("لم يتم العثور على العنصر .gradient-section");
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries, observerInstance) => {
@@ -112,13 +123,10 @@ const ServicesCarousel = () => {
     );
     observer.observe(section);
 
-    return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
-    };
+    return () => observer.unobserve(section);
   }, []);
 
+  // List of services
   const services = useMemo(
     () => [
       {
@@ -161,6 +169,7 @@ const ServicesCarousel = () => {
     []
   );
 
+  // Group services in arrays of three for each carousel slide
   const groupedServices = useMemo(() => {
     const groups = [];
     for (let i = 0; i < services.length; i += 3) {
@@ -171,103 +180,128 @@ const ServicesCarousel = () => {
 
   return (
     <section id="services" className="py-5 bg-light gradient-section">
-      <div className="container content">
-        <h2 className="text-center mb-4 text-primary fw-bold">Our Services</h2>
-        <div
-          id="serviceCarousel"
-          className="carousel slide carousel-fade"
-          data-bs-ride="carousel"
-          ref={carouselRef}
-          onMouseEnter={stopSlideInterval}
-          onMouseLeave={startSlideInterval}
-        >
-          <div className="carousel-inner">
-            {groupedServices.map((group, index) => (
-              <div
-                key={index}
-                className={`carousel-item ${
-                  index === currentIndex ? "active" : ""
-                }`}
-              >
-                <div className="row text-center">
-                  {group.map((service) => (
-                    <div key={service.id} className="col-12 col-sm-6 col-md-4">
-                      <div className="service-card">
-                        <div className="wavy-overlay" />
-                        <div className="overlay" />
-                        <div className="service-header">
-                          <div className="icon-box">
-                            <img src={service.icon} alt={service.title} />
+      <div className="context">
+        <div className="area">
+          <ul className="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <div className="container content">
+            <h2 className="text-center mb-4 text-primary fw-bold">
+              Our Services
+            </h2>
+            <div
+              id="serviceCarousel"
+              className="carousel slide carousel-fade"
+              data-bs-ride="carousel"
+              data-bs-touch="true"
+              ref={carouselRef}
+              onMouseEnter={stopSlideInterval}
+              onMouseLeave={startSlideInterval}
+            >
+              <div className="carousel-inner">
+                {groupedServices.map((group, index) => (
+                  <div
+                    key={index}
+                    className={`carousel-item ${
+                      index === currentIndex ? "active" : ""
+                    }`}
+                  >
+                    <div className="row text-center">
+                      {group.map((service) => (
+                        <div
+                          key={service.id}
+                          className="col-12 col-sm-6 col-md-4"
+                        >
+                          <div className="service-card">
+                            <div className="wavy-overlay" />
+                            <div className="overlay" />
+                            <div className="service-header">
+                              <div className="icon-box">
+                                <img src={service.icon} alt={service.title} />
+                              </div>
+                            </div>
+                            <div className="service-body">
+                              <h3 className="service-title">{service.title}</h3>
+                              <p className="service-description">
+                                {service.description}
+                              </p>
+                              <a href="#!" className="learn-more">
+                                Explore Solutions
+                              </a>
+                            </div>
                           </div>
                         </div>
-                        <div className="service-body">
-                          <h3 className="service-title">{service.title}</h3>
-                          <p className="service-description">
-                            {service.description}
-                          </p>
-                          <a href="#!" className="learn-more">
-                            Explore Solutions
-                          </a>
-                        </div>
-                      </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
-            ))}
+
+              {/* Carousel Controls */}
+              <button
+                className="carousel-control-prev"
+                type="button"
+                data-bs-target="#serviceCarousel"
+                data-bs-slide="prev"
+                onClick={() => {
+                  const newIndex =
+                    (currentIndex - 1 + totalSlides) % totalSlides;
+                  setCurrentIndex(newIndex);
+                  showSlide(newIndex);
+                  startProgressAnimation();
+                }}
+              >
+                <span
+                  className="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+
+              <button
+                className="carousel-control-next"
+                type="button"
+                data-bs-target="#serviceCarousel"
+                data-bs-slide="next"
+                onClick={() => {
+                  const newIndex = (currentIndex + 1) % totalSlides;
+                  setCurrentIndex(newIndex);
+                  showSlide(newIndex);
+                  startProgressAnimation();
+                }}
+              >
+                <span
+                  className="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+            </div>
+
+            {/* Progress Bar */}
+            <div
+              className="progress mt-3"
+              style={{ height: "10px", borderRadius: "12px" }}
+            >
+              <div
+                ref={progressBarRef}
+                className="progress-bar"
+                role="progressbar"
+                style={{
+                  background: "linear-gradient(90deg, #007bff, #00bfff)",
+                  width: currentIndex === 0 ? "0%" : "50%",
+                  transition: "width 0.5s ease",
+                }}
+              />
+            </div>
           </div>
-
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#serviceCarousel"
-            data-bs-slide="prev"
-            onClick={() => {
-              const newIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-              setCurrentIndex(newIndex);
-              showSlide(newIndex);
-              startProgressAnimation();
-            }}
-          >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-          </button>
-
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#serviceCarousel"
-            data-bs-slide="next"
-            onClick={() => {
-              const newIndex = (currentIndex + 1) % totalSlides;
-              setCurrentIndex(newIndex);
-              showSlide(newIndex);
-              startProgressAnimation();
-            }}
-          >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-          </button>
-        </div>
-
-        <div
-          className="progress mt-3"
-          style={{ height: "10px", borderRadius: "12px" }}
-        >
-          <div
-            ref={progressBarRef}
-            className="progress-bar"
-            role="progressbar"
-            style={{
-              background: "linear-gradient(90deg, #007bff, #00bfff)",
-              width: currentIndex === 0 ? "0%" : "50%",
-              transition: "width 0.5s ease",
-            }}
-          />
         </div>
       </div>
     </section>

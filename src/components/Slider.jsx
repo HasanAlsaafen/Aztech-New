@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const slideIntervalRef = useRef(null);
   const slides = [
     {
       img: "https://i.pinimg.com/736x/ea/37/71/ea377159b319b539c893581efdae6a2c.jpg",
@@ -23,66 +23,30 @@ const Slider = () => {
     },
   ];
 
-  const totalSlides = slides.length;
-
-  useEffect(() => {
-    const slides = document.querySelectorAll(".carousel-item");
-    slides.forEach((slide, index) => {
-      slide.classList.remove("active", "next-enter", "prev-enter");
-      if (index === currentIndex) {
-        slide.classList.add("active", "next-enter");
-      }
-    });
-
-    return () => {
-      slides.forEach((slide) => {
-        slide.classList.remove("next-enter", "prev-enter");
-      });
-    };
-  }, [currentIndex]);
-
-  const stopSlideInterval = () => {
-    if (slideIntervalRef.current) clearInterval(slideIntervalRef.current);
-  };
-  const switchSlide = (direction) => {
-    const slides = document.querySelectorAll(".carousel-item");
-    const activeSlide = document.querySelector(".carousel-item.active");
-
-    let newIndex = [...slides].indexOf(activeSlide) + direction;
-
-    if (newIndex < 0) newIndex = slides.length - 1;
-    if (newIndex >= slides.length) newIndex = 0;
-
-    const newSlide = slides[newIndex];
-
-    activeSlide.classList.add(direction === 1 ? "next-exit" : "prev-exit");
-    newSlide.classList.add(direction === 1 ? "next-enter" : "prev-enter");
-
-    setTimeout(() => {
-      activeSlide.classList.remove("active", "next-exit", "prev-exit");
-      newSlide.classList.add("active");
-      newSlide.classList.remove("next-enter", "prev-enter");
-    }, 1000);
-
-    setCurrentIndex(newIndex);
-  };
-
   return (
     <div className="container-fluid p-0">
-      <div id="heroSlider" className="carousel slide hero-section">
+      <div
+        id="carouselExampleAutoplaying"
+        className="carousel slide hero-section carousel-fade"
+        data-bs-ride="carousel"
+      >
+        {/* Carousel Indicators */}
         <div className="carousel-indicators">
           {slides.map((_, index) => (
             <button
               key={index}
               type="button"
-              data-bs-target="#heroSlider"
+              data-bs-target="#carouselExampleAutoplaying"
               data-bs-slide-to={index}
               className={index === currentIndex ? "active" : ""}
+              aria-current={index === currentIndex ? "true" : "false"}
+              aria-label={`Slide ${index + 1}`}
               onClick={() => setCurrentIndex(index)}
             ></button>
           ))}
         </div>
 
+        {/* Carousel Slides */}
         <div className="carousel-inner">
           {slides.map((slide, index) => (
             <div
@@ -91,6 +55,7 @@ const Slider = () => {
                 index === currentIndex ? "active" : ""
               }`}
             >
+              {/* Overlay and decoration elements */}
               <div className="overlay"></div>
               <div className="diagonal-line"></div>
               <img
@@ -122,10 +87,12 @@ const Slider = () => {
           ))}
         </div>
 
+        {/* Carousel Controls */}
         <button
           className="carousel-control-prev nav-arrow left"
           type="button"
-          onClick={() => switchSlide(-1)}
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev"
         >
           <span
             className="carousel-control-prev-icon"
@@ -136,13 +103,13 @@ const Slider = () => {
         <button
           className="carousel-control-next nav-arrow right"
           type="button"
-          onClick={() => switchSlide(1)}
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next"
         >
           <span
             className="carousel-control-next-icon"
             aria-hidden="true"
           ></span>
-          <span className="visually-hidden">Next</span>
         </button>
       </div>
     </div>

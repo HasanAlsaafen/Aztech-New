@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import aboutImage from "/src/assets/About-us.svg";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function AboutUs() {
   const sectionRef = useRef(null);
@@ -11,12 +12,11 @@ function AboutUs() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            // بعد ظهور القسم يمكن إيقاف المراقبة إذا رغبت بذلك
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.5 } // يبدأ التأثير عندما يظهر 50% من القسم
+      { threshold: 0.5 }
     );
 
     if (sectionRef.current) {
@@ -32,14 +32,17 @@ function AboutUs() {
     <section
       ref={sectionRef}
       id="about-us"
-      className={`about-us-section ${isVisible ? "visible" : ""}`}
+      className={`container py-5 about-us-section ${
+        isVisible ? "visible" : ""
+      }`}
     >
-      <div className="about-us-container">
-        <div className="about-us-image">
-          <img src={aboutImage} alt="About Us" />
+      <div className="row align-items-center">
+        <div className="col-md-6 text-center">
+          <img src={aboutImage} alt="About Us" className="img-fluid" />
         </div>
-        <div className="about-us-content">
-          <h2>About Us</h2>
+
+        <div className="col-md-6 text-center text-md-start">
+          <h2 className="mb-4">About Us</h2>
           <p>
             A &amp; Z Technology, established in 2023 in Riyadh, Saudi Arabia,
             is a leading provider of electromechanical, networking, and IT

@@ -1,8 +1,36 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect, useRef, useState } from "react";
 import Vision from "../assets/vision.svg";
 const OurVision = () => {
+  const abouUs = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (abouUs.current) {
+      observer.observe(abouUs.current);
+    }
+
+    return () => {
+      if (abouUs.current) observer.unobserve(abouUs.current);
+    };
+  }, []);
   return (
-    <section className="our-vision-section" id="OurVision">
+    <section
+      className={` our-vision-section ${isVisible ? "visible" : ""}`}
+      id="OurVision"
+      ref={abouUs}
+    >
       <div className="container">
         <div className="row align-items-center">
           {}

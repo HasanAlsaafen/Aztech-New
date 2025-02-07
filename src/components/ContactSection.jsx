@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 const ContactSection = () => {
   const sectionRef = useRef(null);
 
-  // Intersection Observer for reveal animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -22,11 +21,10 @@ const ContactSection = () => {
 
   return (
     <section
-      className="contact-section relative overflow-hidden"
+      className="contact-section position-relative overflow-hidden py-5"
       id="contact"
       ref={sectionRef}
     >
-      {/* Animated Dots */}
       <div className="dots-container">
         {[...Array(10)].map((_, index) => (
           <div key={index} className="animated-dot"></div>
@@ -34,34 +32,33 @@ const ContactSection = () => {
       </div>
 
       <div className="container">
-        <div className="content-wrapper">
-          {/* Left Side */}
-          <div className="left-section animate-left">
+        <div className="row content-wrapper align-items-center">
+          <div className="left-section col-12 col-md-6 animate-left position-relative">
             <div className="gradient-overlay"></div>
-            <h1>Hello!</h1>
-            <p>Your gateway to smart solutions.</p>
+            <h1 className="display-4">Hello!</h1>
+            <p className="lead">Your gateway to smart solutions.</p>
             <img
               src="https://cdn-icons-png.flaticon.com/256/8692/8692863.png"
               alt="Robot Hand"
-              className="robot-hand"
+              className="img-fluid robot-hand"
             />
           </div>
 
-          {/* Right Side */}
-          <div className="right-section animate-right">
-            <h2>
-              Choose <span>The Best</span> IT Service Company
+          <div className="right-section col-12 col-md-6 animate-right">
+            <h2 className="mb-3">
+              Choose <span className="text-primary">The Best</span> IT Service
+              Company
             </h2>
             <p>
-              A & Z Technology, established in 2023 in Riyadh, Saudi Arabia, is
-              a leading provider of electromechanical, networking, and IT
+              A &amp; Z Technology, established in 2023 in Riyadh, Saudi Arabia,
+              is a leading provider of electromechanical, networking, and IT
               solutions.
             </p>
-            <div className="contact-box">
-              <a href="#" className="contact-btn">
+            <div className="contact-box mt-4">
+              <a href="#" className="contact-btn btn btn-primary">
                 Contact Us
               </a>
-              <span className="phone">📞 (+0966 542 278 289)</span>
+              <span className="phone ms-3">📞 (+0966 542 278 289)</span>
             </div>
           </div>
         </div>

@@ -51,7 +51,7 @@ const Header = () => {
               <FontAwesomeIcon icon={faTwitter} className="fs-6 mx-3" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/a-and-z-technology-ksa/?viewAsMember=true"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted hover-accent social-link"
@@ -61,26 +61,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-
-      <style>{`
-        .elegant-header {
-          background: #f8f9fa;
-          border-bottom: 1px solid #e9ecef;
-        }
-        
-        .hover-accent {
-          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .hover-accent:hover {
-          color: #2d3436 !important;
-          transform: translateY(-1px);
-        }
-        
-        .social-link:hover svg {
-          transform: scale(1.15);
-        }
-      `}</style>
     </header>
   );
 };

@@ -1,5 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Ensure Bootstrap JS is imported
 import "font-awesome/css/font-awesome.min.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -12,7 +14,7 @@ const Navbar = () => {
         >
           <div className="logo-container">
             <img
-              src="/src/assets/logo.png"
+              src="src\assets\logo.png"
               alt="Aztech Logo"
               className="logo img-fluid"
             />
@@ -32,23 +34,24 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navbar Links */}
+        {/* Navbar Links and Search */}
+
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mx-auto align-items-center">
             <li className="nav-item">
-              <a className="nav-link px-3 active" href="#" id="nav-home">
+              <Link className="nav-link px-3 active" to="" id="nav-home">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link px-3" href="#services" id="nav-services">
+              <a className="nav-link px-3" href="/#services" id="nav-services">
                 Services
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link px-3" href="#contact" id="nav-contact">
+              <Link className="nav-link px-3" to="/contact" id="nav-contact">
                 Contact Us
-              </a>
+              </Link>
             </li>
           </ul>
 
@@ -66,7 +69,7 @@ const Navbar = () => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-search"
+              className="bi bi-search"
               viewBox="0 0 16 16"
             >
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
