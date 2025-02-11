@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-gradient sticky-top shadow-sm py-3 glass-navbar ">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <div className="logo-container">
-            <img
-              src="src\assets\logo.png"
-              alt="Aztech Logo"
-              className="logo img-fluid"
-            />
+            <img src={logo} alt="Aztech Logo" className="logo img-fluid" />
           </div>
         </a>
 
