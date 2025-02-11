@@ -1,4 +1,13 @@
+import { useEffect } from "react";
 const ContactPage = () => {
+  useEffect(() => {
+    const navHome = document.getElementById("nav-home");
+    navHome.classList.remove("active");
+    const navServices = document.getElementById("nav-services");
+    navServices.classList.remove("active");
+    const navContact = document.getElementById("nav-contact");
+    navContact.classList.add("active");
+  }, []);
   return (
     <div className="new_home_web">
       <div className="responsive-container-block big-container">

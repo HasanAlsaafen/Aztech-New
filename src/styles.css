@@ -10,33 +10,14 @@ body {
   background-color: #f4f4f4;
   line-height: 1.6;
 }
-/* Header */
-header
-{
-  height: 35px;
-}
-.elegant-header {
-  background: #f8f9fa;
-  border-bottom: 1px solid #e9ecef;
-}
 
-.hover-accent {
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-accent:hover {
-  color: #2d3436 !important;
-  transform: translateY(-1px);
-}
-
-.social-link:hover svg {
-  transform: scale(1.15);
-}
 /* Navbar */
 .logo {
-  width: 150px; 
+  width: 170px; 
   height: auto;
   transition: transform 0.3s ease;
+  padding-bottom: 1rem;
+  padding-left: 0%;
 }
 .logo-container {
   display: flex;
@@ -47,13 +28,13 @@ header
 .logo:hover {
   transform: scale(1.1); 
 }
+
 .navbar {
   padding: 1.5rem 2rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   position: sticky;
   z-index: 1000;
-  height: auto;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 .navbar-nav .nav-link {
   transition: color 0.3s ease;
@@ -69,7 +50,6 @@ header
 }
 .navbar-nav .nav-link::after {
   content: "";
-  position: absolute;
   left: 50%;
   bottom: -5px;
   width: 0;
@@ -98,22 +78,24 @@ header
   padding: 0.5rem 0;
 }
 
-/* Hero section CSS */
+
+/* Hero section */
 .hero-section {
   position: relative;
   overflow: hidden;
-  height: 80vh;
+  height: 40rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(45deg, #3498db, #3598bb);
+  background: linear-gradient(45deg, #ffffff, #ffffff);
   background-size: 300% 300%;
   z-index: 1;
 }
 
 .slide-img {
-  height: 80vh;
+  height: 100%;
   object-fit: cover;
+  
 }
 
 .overlay {
@@ -122,16 +104,15 @@ header
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .diagonal-line {
   position: absolute;
-  top: 0;
-  left: 50%;
-  width: 160%;
+  bottom:  10%;
+  width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(154, 165, 226, 0.7), rgba(143, 191, 223, 0.1));
+  background: linear-gradient(135deg, rgba(35, 44, 98, 0.7), rgba(108, 122, 223, 0.1));
   transform: rotate(-15deg) translateX(-50%);
   pointer-events: none;
   opacity: 0;
@@ -152,72 +133,16 @@ header
   overflow: hidden;
 }
 
-.hero-slide {
-  flex-shrink: 0;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-}
-
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  z-index: 2;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 40%;
-  text-align: left;
-}
-
-.hero-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.lead {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-}
 
 .hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
 }
 
-.nav-arrow {
-  width: 100px;
-  height: 100px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 3;
-  margin-bottom: 250px;
-  transition: transform 0.3s ease;
-}
-
-.nav-arrow:hover {
-  background-color: rgba(52, 152, 219, 0.8);
-  transform: translateY(-50%) scale(1.1);
-}
 
 .nav-arrow.left {
   left: 20px;
@@ -227,34 +152,141 @@ header
   right: 20px;
 }
 
-.text-start {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid #fff;
-  width: 0;
-  animation: typing 3s steps(30) forwards;
+.carousel-caption {
+  position: absolute;
+  top: 65%;
+  left: 10%;
+  transform: translateY(-50%);
+  text-align: left;
+  max-width: 600px;
+  z-index: 2;
 }
 
-/* على الشاشات الصغيرة نقوم بإلغاء الأنيميشن ونضبط العرض ليكون تلقائي */
-@media (max-width: 576px) {
-  .text-start {
-    animation: none;
-    width: auto;
-    white-space: normal; /* للسماح بتغليف النص */
+.carousel-caption h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.carousel-caption p {
+  font-size: 1.2rem;
+  color: #f8f9fa;
+  line-height: 1.6;
+}
+
+.carousel-caption .btn {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.7rem 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.carousel-caption .btn:hover {
+  background: #0056b3;
+  transform: translateY(-3px);
+}
+
+.nav-arrow {
+  width: 50px;
+  height: 50px;
+  background: rgba(139, 212, 227, 0.3);
+  border-radius: 50%;
+  transition: 0.3s ease-in-out;
+}
+
+.nav-arrow:hover {
+  background: rgba(151, 176, 209, 0.6);
+}
+
+/* ACTIVE INDIATOR */
+.carousel-indicators button {
+  background-color: rgba(102, 154, 174, 0.5);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 5px;
+  transition: 0.3s ease;
+}
+
+.carousel-indicators .active {
+  background-color: white;
+  transform: scale(1.2);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out;
 }
 
-/* Responsive adjustments */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
-/* For tablets and small desktops */
+.animate-slideInLeft {
+  animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out;
+}
+
 @media (max-width: 768px) {
   .hero-section {
     height: 60vh;
   }
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    text-align: left;
+    max-width: 600px;
+    z-index: 2;
+  }
+  
+  
   
   .slide-img {
     height: 60vh;
@@ -280,12 +312,24 @@ header
   }
 }
 
-/* For mobile devices */
-@media (max-width: 576px) {
+@media (max-width: 384px) {
+  .text-start {
+    animation: none;
+    width: auto;
+    white-space: normal;
+  }
   .hero-section {
     height: 50vh;
   }
-  
+  .carousel-caption {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    transform: translateY(-50%);
+    text-align: left;
+    max-width: 600px;
+    z-index: 2;
+  }
   .slide-img {
     height: 50vh;
   }
@@ -300,11 +344,11 @@ header
   }
   
   .hero-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   
   .lead {
-    font-size: 0.9rem;
+    font-size: 0.4rem;
   }
   
   .nav-arrow {
@@ -328,7 +372,7 @@ header
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #007bff, #00bfff); 
+  background: linear-gradient(90deg, #768799, #00bfff); 
   border-radius: 12px;
   transition: width 0.5s ease-in-out;
 }
@@ -352,7 +396,6 @@ header
 
 .gradient-section .content h2 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
 }
 
 .gradient-section .content p {
@@ -374,162 +417,181 @@ header
 
 @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
-
-
-
-
-.context {
-    width: 100%;
-    position: relative;
-    top:20vh;
-    
+.clientsSection {
+  background: linear-gradient(-45deg, #c0d4e7, #e3f2fd, #0d1014, #e9ecef);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  padding: 4rem 0;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+  overflow: hidden;
 }
 
-.context h1{
-    text-align: center;
-    color: #fff;
-    font-size: 50px;
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-
-.area{
-    width: 100%;
-    height:70vh;
-    margin-top: 0px;
-    padding-top: 0px;
-   
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.circles{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.circles li{
-    position: absolute;
-    display: block;
-    list-style: none;
-    width: 20px;
-    height: 20px;
-    background: rgba(95, 172, 240, 0.2);
-    animation: animate 25s linear infinite;
-    bottom: -150px;
-    z-index: -2;
-}
-
-.circles li:nth-child(1){
-    left: 25%;
-    width: 80px;
-    height: 80px;
-    animation-delay: 0s;
-}
-
-
-.circles li:nth-child(2){
-    left: 10%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 2s;
-    animation-duration: 12s;
-}
-
-.circles li:nth-child(3){
-    left: 70%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 4s;
-}
-
-.circles li:nth-child(4){
-    left: 40%;
-    width: 60px;
-    height: 60px;
-    animation-delay: 0s;
-    animation-duration: 18s;
-}
-
-.circles li:nth-child(5){
-    left: 65%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 0s;
-}
-
-.circles li:nth-child(6){
-    left: 75%;
-    width: 110px;
-    height: 110px;
-    animation-delay: 3s;
-}
-
-.circles li:nth-child(7){
-    left: 35%;
-    width: 150px;
-    height: 150px;
-    animation-delay: 7s;
-}
-
-.circles li:nth-child(8){
-    left: 50%;
-    width: 25px;
-    height: 25px;
-    animation-delay: 15s;
-    animation-duration: 45s;
-}
-
-.circles li:nth-child(9){
-    left: 20%;
-    width: 15px;
-    height: 15px;
-    animation-delay: 2s;
-    animation-duration: 35s;
-}
-
-.circles li:nth-child(10){
-    left: 85%;
-    width: 150px;
-    height: 150px;
-    animation-delay: 0s;
-    animation-duration: 11s;
-}
-
-
-
-@keyframes animate {
-
-    0%{
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-        border-radius: 0;
-    }
-
-    100%{
-        transform: translateY(-1000px) rotate(720deg);
-        opacity: 0;
-        border-radius: 50%;
-    }
-
-}
-.container.content,
-.context {
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
   position: relative;
-  z-index: 1; /* قيمة أعلى لضمان ظهوره فوق الخلفية */
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: fadeInLeft 1s ease-out forwards 0.5s;
 }
 
-.context {
+/* خط تحت العنوان */
+.sectionTitle::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: #81addc;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+
+
+@keyframes bounceIndicator {
+  0%, 100% { transform: rotate(-10deg) translateY(0); }
+  50% { transform: rotate(-10deg) translateY(-5px); }
+}
+
+/* سلايدر العملاء */
+.clientLogoContainer {
+  overflow: hidden;
+  position: relative;
+  padding: 1rem 0;
+}
+
+/* حركة السلايدر */
+.slideTrack {
+  display: flex;
+  gap: 20px;
+  animation: scroll 15s linear infinite;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* تأثير التفاعل مع اللوجوهات */
+.clientLogo {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+  width: 100px;
+  height: auto;
+  will-change: transform;
+}
+
+.clientLogo:hover {
+  filter: grayscale(0%);
+  transform: scale(1.2) rotateY(10deg);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.slide-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 10s linear infinite;
+}
+
+
+.client-logo:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .client-logo-container {
+    height: 150px;
+    margin: 0 0.5rem;
+  }
+  
+  .client-logo {
+    max-width: 120px;
+  }
+}
+
+
+/* الدوائر المتحركة */
+.circles {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  top: 40vh; 
-  transform: translateY(-50%); 
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.circles li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  background: rgba(85, 126, 163, 0.2);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+  z-index: -2;
+  will-change: transform, opacity; /* تحسين الأداء */
+}
+
+.circles li:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+.circles li:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+.circles li:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+.circles li:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+.circles li:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+.circles li:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
+.circles li:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; }
+.circles li:nth-child(8) { left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
+.circles li:nth-child(9) { left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s; }
+.circles li:nth-child(10) { left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s; }
+
+/* تحريك الدوائر */
+@keyframes animate {
+  0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+      border-radius: 0;
+  }
+  100% {
+      transform: translateY(-1000px) rotate(720deg);
+      opacity: 0;
+      border-radius: 50%;
+  }
 }
 
 
-/*--------------------------------*/
-/* بطاقات الخدمات (Service Cards) */
-/*--------------------------------*/
+
+/* Srevices*/
 .service-card {
   background: var(--color-bg);
   border-radius: 2rem;
@@ -541,13 +603,11 @@ header
   overflow: hidden;
 }
 
-/* تأثير التحويم على البطاقة */
 .service-card:hover {
   transform: translateY(-12px) scale(1.05);
   box-shadow: 0 16px 48px var(--shadow-dark);
 }
 
-/* رأس البطاقة */
 .service-header {
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   padding: 4rem 0 3rem;
@@ -555,22 +615,12 @@ header
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
 
-.service-header::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background: var(--color-bg);
-  border-radius: 50% 50% 0 0;
-}
 
-/* صندوق الأيقونة مع تأثير خلفية شعاعية وتدرج لوني */
+
 .icon-box {
   background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-primary) 70%);
   padding: 1.5rem;
-  border-radius: 50%;
+  border-radius: 40%;
   position: absolute;
   top: 55%;
   left: 50%;
@@ -586,13 +636,13 @@ header
 }
 
 .service-card:hover .icon-box {
-  transform: translate(-50%, -50%) scale(1.15) rotate(10deg);
+  transform: translate(-50%, -50%) scale(1.15) rotate(15deg);
 }
 
 .icon-box img {
   width: 2.5rem;
   height: 2.5rem;
-  filter: brightness(0) invert(1);
+  filter:  invert(1);
   transition: transform 1s ease;
 }
 
@@ -600,7 +650,6 @@ header
   transform: rotate(360deg);
 }
 
-/* محتوى البطاقة */
 .service-body {
   padding: 5rem 1.5rem 2rem;
   position: relative;
@@ -623,12 +672,10 @@ header
   transition: opacity 0.4s ease;
 }
 
-/* إخفاء الوصف عند التحويم لإظهار زر "المزيد" */
 .service-card:hover .service-description {
   opacity: 0;
 }
 
-/* زر "المزيد" مع تأثير ظهور سلس */
 .learn-more {
   display: inline-flex;
   align-items: center;
@@ -662,7 +709,6 @@ header
   transform: translateX(5px);
 }
 
-/* تأثير طبقة التراكب الخفيفة */
 .overlay {
   position: absolute;
   inset: 0;
@@ -671,10 +717,9 @@ header
 }
 
 .service-card:hover .overlay {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(187, 168, 168, 0.05);
 }
 
-/* تأثير الموجة الخلفية المطور */
 .wavy-overlay {
   position: absolute;
   inset: 0;
@@ -704,15 +749,12 @@ header
   }
 }
 
-/*--------------------------------*/
-/* تنسيق أسهم التحكم في الكاروسيل */
-/*--------------------------------*/
 .carousel-control-prev,
 .carousel-control-next {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
-  color: #fff;
+  color: #161414;
+  background-color: #00bfff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -725,11 +767,11 @@ header
 }
 
 .carousel-control-prev {
-  left: -70px;
+  left: -50px;
 }
 
 .carousel-control-next {
-  right: -70px;
+  right: -50px;
 }
 
 .carousel-control-prev:hover,
@@ -737,11 +779,7 @@ header
   transform: translateY(-50%) scale(1.15);
 }
 
-/*--------------------------------*/
-/* التنسيق المتجاوب */
-/*--------------------------------*/
 
-/* استخدام شبكة مرنة لعرض البطاقات */
 .service-cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -749,86 +787,105 @@ header
   padding: 1rem;
 }
 
-/* شاشات متوسطة */
+/* تحسين استجابة الخدمات */
+@media (max-width: 1024px) {
+  .service-body {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .service-title {
+    font-size: 1.4rem;
+  }
+
+  .service-description {
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .gradient-section .content h2 {
-    font-size: 2rem;
-  }
-  .gradient-section .content p {
-    font-size: 1rem;
-  }
-  
   .service-card {
     min-height: 350px;
     margin: 0.5rem;
   }
-  
-  .service-body {
-    padding: 4rem 1rem 1.5rem;
-  }
-}
 
-/* شاشات صغيرة */
-@media (max-width: 576px) {
-  .gradient-section {
-    padding: 1.5rem;
-  }
-  .gradient-section .content h2 {
-    font-size: 1.75rem;
-  }
-  .gradient-section .content p {
-    font-size: 0.9rem;
-  }
-  
-  .service-card {
-    min-height: 300px;
-    margin: 0.5rem;
-  }
-  
   .service-body {
-    padding: 3rem 0.5rem 1rem;
+    padding: 3.5rem 1rem 1.5rem;
   }
-  
+
   .icon-box {
     width: 60px;
     height: 60px;
+    top: 50%;
   }
-  
+
   .icon-box img {
     width: 2rem;
     height: 2rem;
   }
-  
-  .learn-more {
-    padding: 0.6rem 1.2rem;
-  }
-  
-  /* تعديل حجم الأسهم في الكاروسيل */
+
   .carousel-control-prev,
   .carousel-control-next {
     width: 40px;
     height: 40px;
   }
+
+  .carousel-control-prev {
+    left: -50px;
+  }
+
+  .carousel-control-next {
+    right: -50px;
+  }
 }
-@media (max-width: 576px) {
+
+@media (max-width: 480px) {
+  .service-title {
+    font-size: 1.2rem;
+  }
+
+  .service-description {
+    font-size: 0.85rem;
+  }
+
+  .icon-box {
+    width: 50px;
+    height: 50px;
+    top: 45%;
+  }
+
+  .icon-box img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
   .carousel-control-prev,
   .carousel-control-next {
-    display: none;
+    width: 35px;
+    height: 35px;
+    background-color: #00bfff;
+    color: #0d1014;
+  }
+
+  .carousel-control-prev {
+    left: -40px;
+  }
+
+  .carousel-control-next {
+    right: -40px;
   }
 }
 
 
-/* ======================================
-   قسم الاتصال (Contact Section)
-====================================== */
+/* Contact section */
+/* Global Styles */
 .contact-section {
   position: relative;
-  padding: 80px 0;
-  background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #f8f9fa 20%, #e3e6ea 100%);
+  padding: 5rem 0;
+  overflow: hidden;
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s ease;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .contact-section.visible {
@@ -836,214 +893,169 @@ header
   transform: translateY(0);
 }
 
-/* الحاوية العامة */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* حاوية المحتوى */
-.content-wrapper {
+.dots-container {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-  text-align: left;
+  gap: 8px;
+
+  z-index: 0;
 }
 
-/* القسم الأيسر */
+.animated-dot {
+  width: 10px;
+  height: 10px;
+  background: #007bff;
+  border-radius: 50%;
+  animation: floatDots 3s infinite ease-in-out alternate;
+}
+
+.animated-dot:nth-child(even) {
+  background: #0056b3;
+  animation-delay: 0.5s;
+}
+
+@keyframes floatDots {
+  0% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* Left Section */
 .left-section {
-  position: relative;
-  flex: 1;
-  max-width: 50%;
-  padding: 40px;
-  border-radius: 15px;
   text-align: center;
-  overflow: hidden;
+  position: relative;
+  padding: 2rem;
 }
 
 .left-section h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
 }
 
 .left-section p {
   font-size: 1.2rem;
-  opacity: 0.8;
+  color: #555;
 }
 
-/* صورة اليد الروبوتية */
 .robot-hand {
-  width: 150px;
-  margin-top: 20px;
-  transition: transform 0.3s ease-in-out;
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  animation: floatImage 3s ease-in-out infinite;
 }
 
-.robot-hand:hover {
-  transform: rotate(5deg) scale(1.1);
+@keyframes floatImage {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-/* طبقة التدرج (لإضافة تأثير متحرك خلف النص) */
-.gradient-overlay {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 50%);
-  animation: animateGradient 10s infinite linear;
-  pointer-events: none;
-}
-
-@keyframes animateGradient {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* القسم الأيمن */
+/* Right Section */
 .right-section {
-  flex: 1;
-  max-width: 45%;
-  padding: 20px;
+  padding: 2rem;
 }
 
 .right-section h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.right-section h2 span {
-  color: #60a5fa;
+  color: #222;
 }
 
 .right-section p {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  color: #444;
   line-height: 1.6;
-  opacity: 0.9;
 }
 
-/* صندوق الاتصال */
 .contact-box {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
-/* زر الاتصال */
 .contact-btn {
-  display: inline-block;
-  background: #2563eb;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
 }
 
 .contact-btn:hover {
-  background: #1e40af;
-  transform: scale(1.05);
+  background: #0056b3;
+  transform: translateY(-3px);
 }
 
-
-.dots-container {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  width: 90%;
-  height: 80%;
-  overflow: hidden;
-  z-index: 0; /* تأكد من أن قيمة z-index أقل من المحتوى */
-  pointer-events: none; /* حتى لا تعيق النقر على العناصر الأخرى */
+.phone {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
 }
 
-
-.animated-dot {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  animation: moveDots 5s infinite linear;
-}
-
-.animated-dot.dot-1 { top: 20%; left: 10%; animation-delay: 0s; }
-.animated-dot.dot-2 { top: 40%; left: 70%; animation-delay: 1s; }
-.animated-dot.dot-3 { top: 70%; left: 30%; animation-delay: 2s; }
-.animated-dot.dot-4 { top: 10%; left: 80%; animation-delay: 3s; }
-.animated-dot.dot-5 { top: 60%; left: 50%; animation-delay: 4s; }
-
-@keyframes moveDots {
-  0% {
-    transform: translate(0, 0);
-    opacity: 0.8;
-  }
-  25% {
-    transform: translate(20px, 10px);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translate(20px, 20px);
-    opacity: 0.4;
-  }
-  75% {
-    transform: translate(0, 20px);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translate(0, 0);
-    opacity: 0.8;
-  }
-}
-
-/* ======================================
-   التنسيق المتجاوب (Responsive)
-====================================== */
-@media (max-width: 768px) {
-  .left-section,
-  .right-section {
-    max-width: 100%;
-    flex: 100%;
-  }
-  .content-wrapper {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .right-section {
-    margin-top: 2rem;
-  }
-  .left-section {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 576px) {
+/* Responsive Design */
+@media (max-width: 992px) {
   .contact-section {
-    padding: 50px 20px;
+    padding: 3rem 0;
   }
+
   .left-section h1 {
-    font-size: 2.5rem;
-  }
-  .left-section p,
-  .right-section p {
-    font-size: 1rem;
-  }
-  .right-section h2 {
     font-size: 2rem;
   }
+
+  .right-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .contact-btn {
-    padding: 0.6rem 1.2rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .phone {
+    margin-top: 0.5rem;
   }
 }
+
+@media (max-width: 768px) {
+  .left-section, .right-section {
+    text-align: center;
+  }
+
+  .robot-hand {
+    width: 80%;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .right-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .phone {
+    font-size: 0.9rem;
+  }
+}
+
 
 
 /* ScrollButton*/
@@ -1120,16 +1132,6 @@ header
   position: relative;
 }
 
-.section-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 60px;
-  height: 4px;
-  background-color: #007bff;
-  border-radius: 2px;
-}
 
 .section-description {
   font-size: 1.125rem;
@@ -2248,3 +2250,269 @@ body {
     width: 100%;
   }
 }
+/* ServicesPage.css */
+
+/* General Styles */
+.services-section {
+  background-color: #f9f9f9;
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Gears */
+.gear-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.gear {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border-radius: 50%;
+  border: 20px solid rgba(52, 152, 219, 0.1);
+  animation: rotate 10s linear infinite;
+}
+
+.gear.large {
+  width: 200px;
+  height: 200px;
+  border-width: 25px;
+}
+
+.gear.small {
+  width: 100px;
+  height: 100px;
+  border-width: 15px;
+}
+
+.gear.top-left {
+  top: -50px;
+  left: -50px;
+}
+
+.gear.top-right {
+  top: -50px;
+  right: -50px;
+  animation-direction: reverse;
+}
+
+.gear.bottom-left {
+  bottom: -50px;
+  left: -50px;
+  animation-direction: reverse;
+}
+
+.gear.bottom-right {
+  bottom: -50px;
+  right: -50px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 4px;
+  background-color: #3498db;
+  margin: 10px auto 0;
+}
+
+/* Service Cards Container */
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+.card{
+display: flex;
+  height: auto;
+  width: auto;
+  justify-content: center;
+  align-content: center;
+  border-radius: 1.5rem ;
+
+}
+.image{
+  height: 30rem;
+  width: 30rem;
+  align-self: center;
+  object-fit: cover;
+  filter:brightness(5px);
+  border-radius: 1.5rem;
+}
+.card h3::after 
+{
+  content: '';
+  display: block;
+  width: 120px;
+  height: 4px;
+  background-color: #1f2a32;
+  margin: 10px auto 0;
+
+}
+/* استيراد خط أنيق */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #f8f9fa;
+  --dark-color: #343a40;
+  --light-gray: #e9ecef;
+  --card-bg: white;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--secondary-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* أنماط الصفحة */
+.services-page {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 20px;
+}
+
+/* تأثيرات التروس الخلفية */
+.gear-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.gear {
+  position: absolute;
+  background: url('https://cdn-icons-png.flaticon.com/128/3953/3953226.png') no-repeat center;
+  background-size: contain;
+}
+
+.gear.large { width: 100px; height: 100px; }
+.gear.small { width: 60px; height: 60px; }
+.gear.top-left { top: 10%; left: 5%; }
+.gear.top-right { top: 10%; right: 5%; }
+.gear.bottom-left { bottom: 10%; left: 5%; }
+.gear.bottom-right { bottom: 10%; right: 5%; }
+
+/* عنوان الصفحة */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 30px;
+}
+
+/* أنماط الحاوية */
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* تصميم الكروت */
+.card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* الصور داخل الكروت */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* عنوان الخدمة */
+.card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* النص داخل الكارت */
+.card p {
+  font-size: 1rem;
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+.card ul {
+  padding-left: 20px;
+}
+
+.card ul li {
+  font-size: 0.9rem;
+  color: var(--dark-color);
+  margin-bottom: 8px;
+  list-style: disc;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  .card h3 {
+    font-size: 1.3rem;
+  }
+  .card p {
+    font-size: 0.9rem;
+  }
+}
+
+

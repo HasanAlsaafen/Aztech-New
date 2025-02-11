@@ -4,7 +4,6 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Slider from "./components/Slider";
 import ScrollButton from "./components/ScrollButton";
@@ -16,16 +15,14 @@ import AboutUs from "./components/AboutUs";
 import Statistics from "./components/Statistics";
 import Footer from "./components/Footer";
 import ContactPage from "./components/ContactPage";
+import ServicesPage from "./components/ServicesPage";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
-
 function App() {
   return (
     <Router>
-      <Header />
       <Navbar />
-
       <Routes>
         <Route
           path="/"
@@ -45,6 +42,7 @@ function App() {
         />
 
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/services" element={<ServicesPage />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

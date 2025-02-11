@@ -48,7 +48,7 @@ const Footer = () => {
                   icon={faEnvelope}
                   content={
                     <a href="mailto:221141@ppu.edu.ps" className="link-light">
-                      221141@ppu.edu.ps
+                      info@aztech-ksa.com
                     </a>
                   }
                 />
@@ -56,13 +56,13 @@ const Footer = () => {
                   icon={faPhone}
                   content={
                     <a href="tel:+970592935904" className="link-light">
-                      +970 592 935 904
+                      00966542278289
                     </a>
                   }
                 />
                 <ContactItem
                   icon={faMapMarkerAlt}
-                  content="123 Main St, Palestine"
+                  content="123 Main St, Riyadh"
                 />
               </ul>
               <div className="d-flex gap-3 social-links">

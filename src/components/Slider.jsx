@@ -6,7 +6,7 @@ const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slides = [
     {
-      img: "https://i.pinimg.com/736x/ea/37/71/ea377159b319b539c893581efdae6a2c.jpg",
+      img: "https://blog.umrahme.com/wp-content/uploads/2023/09/attraction1-6.jpg",
       title: "Who we are?",
       description:
         "A & Z Technology, established in 2023 in Riyadh, Saudi Arabia, is a leading provider of electromechanical, networking, and IT solutions.",
@@ -14,12 +14,20 @@ const Slider = () => {
       buttonLink: "#about-us",
     },
     {
-      img: "https://img.freepik.com/premium-photo/our-vision-concept-business-technology-internet_220873-13795.jpg?w=360",
+      img: "https://t3.ftcdn.net/jpg/04/18/52/88/360_F_418528804_xgyFvVsMSHeWk1UgDtR9aoccqSC7BrHy.jpg",
       title: "Our Vision",
       description:
         "We strive to deliver top-tier services backed by exceptional technical expertise, skilled project managers, and experienced engineers.",
       buttonText: "Learn More →",
       buttonLink: "#OurVision",
+    },
+    {
+      img: "https://img.freepik.com/free-photo/standard-quality-control-concept-m_23-2150041856.jpg?ga=GA1.1.1653854986.1737971238&semt=ais_hybrid",
+      title: "Our Services",
+      description:
+        "Explore our wide range of services designed to meet your needs!",
+      buttonText: "Learn More →",
+      buttonLink: "#services",
     },
   ];
 

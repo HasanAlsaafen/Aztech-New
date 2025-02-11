@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-
+import hello from "../images/hello.svg";
 const ContactSection = () => {
   const sectionRef = useRef(null);
 
@@ -21,7 +21,7 @@ const ContactSection = () => {
 
   return (
     <section
-      className="contact-section position-relative overflow-hidden py-5"
+      className="contact-section position-relative overflow-hidden py-5 align-items-center"
       id="contact"
       ref={sectionRef}
     >
@@ -38,7 +38,7 @@ const ContactSection = () => {
             <h1 className="display-4">Hello!</h1>
             <p className="lead">Your gateway to smart solutions.</p>
             <img
-              src="https://cdn-icons-png.flaticon.com/256/8692/8692863.png"
+              src={hello}
               alt="Robot Hand"
               className="img-fluid robot-hand"
             />
@@ -59,6 +59,12 @@ const ContactSection = () => {
                 Contact Us
               </a>
               <span className="phone ms-3">📞 (+0966 542 278 289)</span>
+            </div>
+            <div className="contact-box mt-4">
+              <a href="#" className="contact-btn btn btn-primary">
+                Contact Us
+              </a>
+              <span className="phone ms-3">📧 omar@aztech-ksa.com</span>
             </div>
           </div>
         </div>
