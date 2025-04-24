@@ -1,11 +1,23 @@
-html {
-  scroll-behavior: smooth;
+
+:root {
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-secondary: #aab8fe;
+  --color-bg: #ffffff;
+  --color-text: #1f2937;
+  --color-subtext: #6b7280;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.2);
 }
+
+
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
+  
+    font-family: 'Roboto', sans-serif;
+  
+    font-size: 16px;
   color: #333;
   background-color: #f4f4f4;
   line-height: 1.6;
@@ -98,15 +110,6 @@ body {
   
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-}
-
 .diagonal-line {
   position: absolute;
   bottom:  10%;
@@ -117,7 +120,6 @@ body {
   pointer-events: none;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  filter: drop-shadow(0px 0px 15px rgba(80, 104, 227, 0.5));
   animation: diagonalWave 6s infinite ease-in-out;
 }
 
@@ -404,19 +406,6 @@ body {
 }
 
 
-:root {
-  --color-primary: #6366f1;
-  --color-primary-dark: #4f46e5;
-  --color-secondary: #aab8fe;
-  --color-bg: #ffffff;
-  --color-text: #1f2937;
-  --color-subtext: #6b7280;
-  --shadow-light: rgba(0, 0, 0, 0.1);
-  --shadow-dark: rgba(0, 0, 0, 0.2);
-}
-
-@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
-
 .clientsSection {
   background: linear-gradient(-45deg, #c0d4e7, #e3f2fd, #0d1014, #e9ecef);
   background-size: 400% 400%;
@@ -598,7 +587,7 @@ body {
 }
 
 .service-card:hover {
-  transform: translateY(-12px) scale(1.05);
+  transform: translateY(-2px) scale(1.05);
   box-shadow: 0 16px 48px var(--shadow-dark);
 }
 
@@ -609,7 +598,9 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
 
-
+.service-card:hover .service-description {
+  opacity: 0;
+}
 
 .icon-box {
   background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-primary) 70%);
@@ -629,9 +620,7 @@ body {
   z-index: 2;
 }
 
-.service-card:hover .icon-box {
-  transform: translate(-50%, -50%) scale(1.15) rotate(15deg);
-}
+
 
 .icon-box img {
   width: 2.5rem;
@@ -666,9 +655,7 @@ body {
   transition: opacity 0.4s ease;
 }
 
-.service-card:hover .service-description {
-  opacity: 0;
-}
+
 
 .learn-more {
   display: inline-flex;
@@ -2349,15 +2336,8 @@ body {
   justify-content: center;
   padding: 25px;
 }
-.card{
-display: flex;
-  height: auto;
-  width: auto;
-  justify-content: center;
-  align-content: center;
-  border-radius: 1.5rem ;
 
-}
+
 .image{
   height: 30rem;
   width: 30rem;
@@ -2376,32 +2356,16 @@ display: flex;
   margin: 10px auto 0;
 
 }
-/* استيراد خط أنيق */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-:root {
-  --primary-color: #007bff;
-  --secondary-color: #f8f9fa;
-  --dark-color: #343a40;
-  --light-gray: #e9ecef;
-  --card-bg: white;
-}
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--secondary-color);
-  margin: 0;
-  padding: 0;
-}
 
-/* أنماط الصفحة */
+
 .services-page {
   position: relative;
   overflow: hidden;
   padding: 60px 20px;
 }
 
-/* تأثيرات التروس الخلفية */
 .gear-background {
   position: absolute;
   top: 0;
@@ -2425,7 +2389,6 @@ body {
 .gear.bottom-left { bottom: 10%; left: 5%; }
 .gear.bottom-right { bottom: 10%; right: 5%; }
 
-/* عنوان الصفحة */
 .section-title {
   font-size: 2.5rem;
   font-weight: 600;
@@ -2433,7 +2396,6 @@ body {
   margin-bottom: 30px;
 }
 
-/* أنماط الحاوية */
 .services-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -2442,9 +2404,7 @@ body {
   margin: 0 auto;
 }
 
-/* تصميم الكروت */
 .card {
-  background: var(--card-bg);
   border-radius: 15px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -2456,11 +2416,11 @@ body {
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* الصور داخل الكروت */
 .card img {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: fill;
+  margin-top:0;
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
@@ -2469,7 +2429,6 @@ body {
   transform: scale(1.05);
 }
 
-/* عنوان الخدمة */
 .card h3 {
   font-size: 1.5rem;
   font-weight: 600;
@@ -2478,7 +2437,6 @@ body {
   margin-top: 15px;
 }
 
-/* النص داخل الكارت */
 .card p {
   font-size: 1rem;
   color: var(--dark-color);
@@ -2496,7 +2454,6 @@ body {
   list-style: disc;
 }
 
-/* تصميم متجاوب */
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;

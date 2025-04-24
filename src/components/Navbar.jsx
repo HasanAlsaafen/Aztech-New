@@ -10,7 +10,6 @@ const Navbar = () => {
           </div>
         </a>
 
-        {/* Toggle Button */}
         <button
           className="navbar-toggler"
           type="button"
@@ -22,8 +21,6 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-
-        {/* Navbar Links and Search */}
 
         <div className="collapse navbar-collapse m-2" id="navbarNav">
           <ul className="navbar-nav  ">
