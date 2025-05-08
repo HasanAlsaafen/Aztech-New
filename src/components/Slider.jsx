@@ -71,14 +71,11 @@ const Slider = () => {
               <div className="diagonal-line"></div>
               <img
                 src={slide.img}
-                className="d-block w-100 slide-img"
+                className="d-block slide-img"
                 alt={`Slide ${index + 1}`}
               />
               <div className="carousel-caption text-start">
-                <span
-                  className="badge text-bg-light px-4 py-2 animate-fadeIn"
-                  style={{ borderRadius: "50px" }}
-                >
+                <span className="badge text-bg-light px-4 animate-fadeIn">
                   We are IT service agency
                 </span>
                 <h2 className="display-3 fw-bold text-white animate-slideInLeft">
@@ -89,7 +86,7 @@ const Slider = () => {
                 </p>
                 <a
                   href={slide.buttonLink}
-                  className="btn btn-primary px-4 py-2 animate-fadeInUp"
+                  className="btn btn-primary px-4  animate-fadeInUp"
                 >
                   {slide.buttonText}
                 </a>

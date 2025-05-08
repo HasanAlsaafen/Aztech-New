@@ -13,11 +13,6 @@ const ServicesCarousel = () => {
     const carousel = carouselRef.current;
     if (!carousel || !(carousel instanceof HTMLElement)) return;
 
-    if (!window.bootstrap?.Carousel) {
-      console.error("Bootstrap لم يتم تحميله!");
-      return;
-    }
-
     let bsCarousel = window.bootstrap.Carousel.getInstance(carousel);
     if (!bsCarousel) {
       bsCarousel = new window.bootstrap.Carousel(carousel, {
@@ -79,11 +74,6 @@ const ServicesCarousel = () => {
   }, []);
 
   useEffect(() => {
-    if (!window.bootstrap) {
-      console.error("Bootstrap لم يتم تحميله!");
-      return;
-    }
-
     const carousel = carouselRef.current;
     if (!carousel) return;
 
@@ -126,7 +116,6 @@ const ServicesCarousel = () => {
     return () => observer.unobserve(section);
   }, []);
 
-  // List of services
   const services = useMemo(
     () => [
       {
@@ -189,17 +178,11 @@ const ServicesCarousel = () => {
       <ul className="circles">
         <li></li>
         <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
       </ul>
       <div className="container content">
-        <h2 className="text-center mb-4 text-primary fw-bold">Our Services</h2>
+        <h2 className="text-center mb-4 text-primary fw-bold serTitle">
+          Our Services
+        </h2>
         <div
           id="serviceCarousel"
           className="carousel slide carousel-fade"
