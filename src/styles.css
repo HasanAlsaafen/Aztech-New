@@ -239,7 +239,12 @@ body {
     transform: translateX(0);
   }
 }
-
+.hero-section img{
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  object-fit: cover;
+  filter: blur(0.1em);
+  }
 .animate-slideInLeft {
   animation: slideInLeft 1s ease-out;
 }
@@ -598,9 +603,7 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
 
-.service-card:hover .service-description {
-  opacity: 0;
-}
+
 
 .icon-box {
   background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-primary) 70%);

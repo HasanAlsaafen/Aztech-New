@@ -32,7 +32,7 @@ const ContactPage = () => {
             className="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-7 wk-ipadp-10 line"
             id="i69b"
           >
-            <form className="form-box">
+            <form className="form-box" action="../contact.php" method="POST">
               <div className="container-block form-wrapper">
                 <div className="responsive-container-block">
                   <div className="left4">
@@ -79,13 +79,14 @@ const ContactPage = () => {
                     <textarea
                       className="textinput"
                       id="i5vyy-2"
+                      name="Message"
                       placeholder="Message"
                     ></textarea>
                   </div>
                 </div>
-                <a className="send" href="#" id="w-c-s-bgc_p-1-dm-id">
+                <button type="submit" className="send" id="w-c-s-bgc_p-1-dm-id">
                   Send
-                </a>
+                </button>
               </div>
             </form>
           </div>

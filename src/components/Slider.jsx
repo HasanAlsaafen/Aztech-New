@@ -1,12 +1,15 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-
+import ryiad from "../images/ryaidh.jpg";
+import vision from "../images/vision.jpg";
+import service from "../images/service.jpg";
+import { ajaxSetup } from "jquery";
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slides = [
     {
-      img: "https://blog.umrahme.com/wp-content/uploads/2023/09/attraction1-6.jpg",
+      img: ryiad,
       title: "Who we are?",
       description:
         "A & Z Technology, established in 2023 in Riyadh, Saudi Arabia, is a leading provider of electromechanical, networking, and IT solutions.",
@@ -14,7 +17,7 @@ const Slider = () => {
       buttonLink: "#about-us",
     },
     {
-      img: "https://t3.ftcdn.net/jpg/04/18/52/88/360_F_418528804_xgyFvVsMSHeWk1UgDtR9aoccqSC7BrHy.jpg",
+      img: vision,
       title: "Our Vision",
       description:
         "We strive to deliver top-tier services backed by exceptional technical expertise, skilled project managers, and experienced engineers.",
@@ -22,7 +25,7 @@ const Slider = () => {
       buttonLink: "#OurVision",
     },
     {
-      img: "https://img.freepik.com/free-photo/standard-quality-control-concept-m_23-2150041856.jpg?ga=GA1.1.1653854986.1737971238&semt=ais_hybrid",
+      img: service,
       title: "Our Services",
       description:
         "Explore our wide range of services designed to meet your needs!",
