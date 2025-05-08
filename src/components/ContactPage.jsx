@@ -32,7 +32,11 @@ const ContactPage = () => {
             className="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-7 wk-ipadp-10 line"
             id="i69b"
           >
-            <form className="form-box" action="../contact.php" method="POST">
+            <form
+              className="form-box"
+              action="https://formspree.io/f/mqaqbwbv"
+              method="POST"
+            >
               <div className="container-block form-wrapper">
                 <div className="responsive-container-block">
                   <div className="left4">
